@@ -1,26 +1,45 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+    --color-skin: "#ffdbac";
+
+    --color-electric-violet-50: #f5f2ff;
+    --color-electric-violet-100: #eee7ff;
+    --color-electric-violet-200: #ddd2ff;
+    --color-electric-violet-300: #c5aeff;
+    --color-electric-violet-400: #a980ff;
+    --color-electric-violet-500: #914dff;
+    --color-electric-violet-600: #7f1dff;
+    --color-electric-violet-700: #7716eb;
+    --color-electric-violet-800: #6412c5;
+    --color-electric-violet-900: #5211a1;
+    --color-electric-violet-950: #32076e;
+
+    --color-charm-50: #fcf4f5;
+    --color-charm-100: #fae9ec;
+    --color-charm-200: #f4d7dc;
+    --color-charm-300: #ebb6c0;
+    --color-charm-400: #e08c9e;
+    --color-charm-500: #d46f88;
+    --color-charm-600: #ba4467;
+    --color-charm-700: #9c3455;
+    --color-charm-800: #832e4b;
+    --color-charm-900: #712a45;
+    --color-charm-950: #3e1322;
+
+    --color-void-50: #f6f6f6;
+    --color-void-100: #e7e7e7;
+    --color-void-200: #d1d1d1;
+    --color-void-300: #b0b0b0;
+    --color-void-400: #888888;
+    --color-void-500: #6d6d6d;
+    --color-void-600: #5d5d5d;
+    --color-void-700: #4f4f4f;
+    --color-void-800: #454545;
+    --color-void-900: #3d3d3d;
+    --color-void-950: #131313;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+* {
+    scroll-behavior: smooth;
 }
