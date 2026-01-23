@@ -36,16 +36,16 @@ const CTASection = () => {
                                 whileInView={{ opacity: 1, x: 0 }}
                                 transition={{ duration: 0.6, delay: 0.3 }}
                                 viewport={{ once: true }}
-                                className="text-zinc-300 text-lg"
+                                className="text-zinc-300 text-lg w-4/5"
                             >
                                 From concept to deployment, I deliver exceptional results that
-                                exceed expectations.
+                                exceed expectations. Chat with my AI clone to know a brief version of myself!
                             </motion.p>
                         </div>
                     </div>
 
                     <button
-                        className={`px-8 py-4 rounded-xl bg-gradient-to-r from-electric-violet-600 via-75% via-charm-500 to-100% to-electric-violet-400 text-white font-semibold shadow-lg hover:shadow-2xl hover:shadow-electric-violet-500/50 transition-all duration-300 whitespace-nowrap`}
+                        className={`cursor-pointer px-8 py-4 rounded-xl bg-linear-to-r from-electric-violet-600 via-75% via-charm-500 to-100% to-electric-violet-400 text-white font-semibold shadow-lg hover:shadow-2xl hover:shadow-electric-violet-500/50 transition-all duration-300 whitespace-nowrap`}
                     >
                         Start a Conversation
                     </button>
