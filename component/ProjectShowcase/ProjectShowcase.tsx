@@ -3,10 +3,10 @@ import React from "react";
 import { projects } from "@/constants/projects";
 import Link from "next/link";
 import Image, { StaticImageData } from "next/image";
-import { GitBranchPlus, ExternalLink } from "lucide-react";
+import { GitBranchPlus, ExternalLink, EyeOff } from "lucide-react";
 import { motion } from "motion/react";
 
-interface Project {
+type Project = {
     id: number;
     title: string;
     description: string;
@@ -14,7 +14,7 @@ interface Project {
     githubUrl?: string;
     liveUrl?: string;
     imageUrl?: StaticImageData;
-}
+};
 
 const ProjectShowcase = () => {
     return (
@@ -37,7 +37,7 @@ const ProjectShowcase = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5, delay: index * 0.1 }}
                         viewport={{ once: true, margin: "-50px" }}
-                        className="bg-gradient-to-br from-zinc-900/90 to-void-950/90 rounded-xl overflow-hidden shadow-lg hover:shadow-2xl hover:shadow-electric-violet-500/20 transition-all duration-300 border border-zinc-800/50 hover:border-electric-violet-500/30 group"
+                        className="bg-linear-to-br from-zinc-900/90 to-void-950/90 rounded-xl overflow-hidden shadow-lg hover:shadow-2xl hover:shadow-electric-violet-500/20 transition-all duration-300 border border-zinc-800/50 hover:border-electric-violet-500/30 group"
                     >
                         {project.imageUrl && (
                             <div className="h-48 bg-zinc-700 overflow-hidden relative">
@@ -48,7 +48,7 @@ const ProjectShowcase = () => {
                                     alt={project.title}
                                     className="w-full h-full object-cover"
                                 />
-                                <div className="absolute inset-0 bg-gradient-to-t from-void-950 to-transparent opacity-60" />
+                                <div className="absolute inset-0 bg-linear-to-t from-void-950 to-transparent opacity-60" />
                             </div>
                         )}
                         <div className="flex flex-col p-6">
@@ -63,7 +63,7 @@ const ProjectShowcase = () => {
                                 {project.technologies.map((tech, techIndex) => (
                                     <span
                                         key={techIndex}
-                                        className="bg-gradient-to-r from-electric-violet-950/80 to-charm-950/80 border border-electric-violet-500/30 px-3 py-1 rounded-full text-sm text-electric-violet-200"
+                                        className="bg-linear-to-r from-electric-violet-950/80 to-charm-950/80 border border-electric-violet-500/30 px-3 py-1 rounded-full text-sm text-electric-violet-200"
                                     >
                                         {tech}
                                     </span>
@@ -71,7 +71,7 @@ const ProjectShowcase = () => {
                             </div>
 
                             <div className="flex gap-4">
-                                {project.githubUrl && (
+                                {project.githubUrl ? (
                                     <Link
                                         href={project.githubUrl}
                                         target="_blank"
@@ -80,6 +80,12 @@ const ProjectShowcase = () => {
                                     >
                                         <GitBranchPlus size={18} /> Code
                                     </Link>
+                                ) : (
+                                    <button
+                                        className="flex items-center gap-2 text-zinc-400 hover:text-electric-violet-300 transition-colors font-medium"
+                                    >
+                                        <EyeOff size={18} /> Private
+                                    </button>
                                 )}
                                 {project.liveUrl && (
                                     <Link

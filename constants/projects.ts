@@ -1,6 +1,7 @@
 import movieClosetImage from "@/public/images/projects/movie-closet.png";
 import weatherBreezeImage from "@/public/images/projects/weather-breeze.png";
 import beerookImage from "@/public/images/projects/beerook.png";
+import custoMewZableImage from "@/public/images/projects/custo-mew-zable.png";
 
 export const projects = [
     {
@@ -30,5 +31,15 @@ export const projects = [
         technologies: ["TypeScript", "Next.js", "Tailwind CSS", "Supabase"],
         liveUrl: "https://beerook.com/",
         imageUrl: beerookImage,
+    },
+    {
+        id: 4,
+        title: "CustoMewZable",
+        description:
+            "Just a simple fun little project that makes svg of cats. Users can save cats, and export them as png or svg.",
+        technologies: ["TypeScript", "Next.js", "Tailwind CSS"],
+        githubUrl: "https://github.com/east2k/custo-mew-zable",
+        liveUrl: "https://custo-mew-zable.vercel.app/",
+        imageUrl: custoMewZableImage,
     },
 ];
