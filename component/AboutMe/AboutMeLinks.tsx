@@ -3,11 +3,12 @@ import { ChevronsRight } from "lucide-react";
 import Link from "next/link";
 import React from "react";
 import { motion } from "motion/react";
+import { openChat } from "../Chat/ChatButton";
 
 type AboutMeLinksProps = {
     icon: React.ElementType;
     text: string;
-    link: string;
+    link?: string;
 };
 
 const AboutMeLinks = ({ icon, text, link }: AboutMeLinksProps) => {
@@ -31,7 +32,13 @@ const AboutMeLinks = ({ icon, text, link }: AboutMeLinksProps) => {
                 {text}
             </p>
             <Link
-                href={link}
+                onClick={(event)=>{
+                    if(!link){
+                        event.preventDefault();
+                        openChat();
+                    }
+                }}
+                href={link ?? "#"}
                 className="rounded-full bg-electric-violet-600 text-white p-2 ml-5 flex items-center hover:from-electric-violet-500 hover:to-charm-500 transition-all duration-300 hover:shadow-lg hover:shadow-electric-violet-500/50"
             >
                 <ChevronsRight />

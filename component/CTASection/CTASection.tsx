@@ -2,6 +2,7 @@
 import React from "react";
 import { motion } from "motion/react";
 import { Rocket } from "lucide-react";
+import { openChat } from "../Chat/ChatButton";
 
 const CTASection = () => {
     return (
@@ -39,12 +40,14 @@ const CTASection = () => {
                                 className="text-zinc-300 text-lg w-4/5"
                             >
                                 From concept to deployment, I deliver exceptional results that
-                                exceed expectations. Chat with my AI clone to know a brief version of myself!
+                                exceed expectations. Chat with my AI clone to know a brief version
+                                of myself!
                             </motion.p>
                         </div>
                     </div>
 
                     <button
+                        onClick={openChat}
                         className={`cursor-pointer px-8 py-4 rounded-xl bg-linear-to-r from-electric-violet-600 via-75% via-charm-500 to-100% to-electric-violet-400 text-white font-semibold shadow-lg hover:shadow-2xl hover:shadow-electric-violet-500/50 transition-all duration-300 whitespace-nowrap`}
                     >
                         Start a Conversation

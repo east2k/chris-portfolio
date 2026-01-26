@@ -39,9 +39,9 @@ const AboutMe = () => {
             <div className="w-1/2 px-5 py-10 flex flex-col gap-10">
                 <AboutMeLinks
                     icon={BotMessageSquare}
-                    text="Chat with my own AI that I trained myself - you can ask
+                    text="Chat with my AI clone - you can ask
                         me anything and I'll answer it the best I can!"
-                    link="#contact-list"
+                    link=""
                 />
                 <AboutMeLinks
                     icon={Mail}
