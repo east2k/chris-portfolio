@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Plus_Jakarta_Sans } from "next/font/google";
+import CustomCursor from "@/component/Cursor/CustomCursor";
 import "./globals.css";
 
 const plusJakartaSans = Plus_Jakarta_Sans({
@@ -36,6 +37,7 @@ export default function RootLayout({
     return (
         <html lang="en" suppressHydrationWarning>
             <body className={`${plusJakartaSans.className} antialiased bg-void-950`}>
+                <CustomCursor />
                 {children}
             </body>
         </html>

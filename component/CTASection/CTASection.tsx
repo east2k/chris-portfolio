@@ -47,7 +47,7 @@ const CTASection = () => {
 
                     <button
                         onClick={openChat}
-                        className={`cursor-pointer w-full md:w-auto px-8 py-4 rounded-xl bg-linear-to-r from-electric-violet-600 via-75% via-charm-500 to-100% to-electric-violet-400 text-white font-semibold shadow-lg hover:shadow-2xl hover:shadow-electric-violet-500/50 transition-all duration-300 whitespace-nowrap`}
+                        className="cursor-pointer w-full md:w-auto px-8 py-4 rounded-xl bg-linear-to-r from-electric-violet-600 via-75% via-charm-500 to-100% to-electric-violet-400 text-white font-semibold shadow-lg hover:shadow-2xl hover:shadow-electric-violet-500/50 transition-all duration-300 whitespace-nowrap"
                     >
                         Start a Conversation
                     </button>

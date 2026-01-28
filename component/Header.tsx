@@ -39,16 +39,18 @@ const Header = () => {
                             </motion.li>
                         </Link>
                     ))}
-                    <motion.li
-                        initial={{ opacity: 0, y: -10 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.4, delay: 0.2 }}
-                        onClick={openChat}
-                        className="cursor-pointer hover:text-electric-violet-300 transition-colors relative group"
-                    >
-                        Chat My Clone
-                        <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-linear-to-r from-electric-violet-400 to-charm-400 group-hover:w-full transition-all duration-300" />
-                    </motion.li>
+                    <button>
+                        <motion.li
+                            initial={{ opacity: 0, y: -10 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.4, delay: 0.2 }}
+                            onClick={openChat}
+                            className="cursor-pointer hover:text-electric-violet-300 transition-colors relative group"
+                        >
+                            Chat My Clone
+                            <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-linear-to-r from-electric-violet-400 to-charm-400 group-hover:w-full transition-all duration-300" />
+                        </motion.li>
+                    </button>
                 </ul>
             </div>
 
