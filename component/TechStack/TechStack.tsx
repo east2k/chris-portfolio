@@ -1,12 +1,11 @@
 "use client";
-import React from "react";
 import TechItem from "./TechItem";
 import { techItems } from "@/constants/techItems";
 import { motion } from "motion/react";
 
 const TechStack = () => {
     return (
-        <div className="flex flex-col max-w-screen-2xl mx-auto text-zinc-50 p-7 items-center mb-20">
+        <div className="flex flex-col max-w-screen-2xl mx-auto text-zinc-50 p-2 md:p-7 items-center mb-20">
             <motion.h1
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}

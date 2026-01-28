@@ -1,5 +1,4 @@
 "use client";
-import React from "react";
 import { Mail, Linkedin, Github, Send, Phone } from "lucide-react";
 import { motion } from "motion/react";
 
@@ -42,7 +41,7 @@ const Contact = () => {
     return (
         <div
             id="contact-me-section"
-            className="flex flex-col max-w-screen-2xl mx-auto text-zinc-50 p-7 items-center mb-20"
+            className="flex flex-col max-w-screen-2xl mx-auto text-zinc-50 p-2 md:p-7 items-center mb-20"
         >
             <motion.h1
                 initial={{ opacity: 0, y: 20 }}
@@ -79,10 +78,10 @@ const Contact = () => {
                             whileInView={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.5, delay: index * 0.1 }}
                             viewport={{ once: true }}
-                            className="group relative flex items-center gap-4 p-6 bg-gradient-to-br from-zinc-900/90 to-void-950/90 rounded-xl border border-zinc-800/50 hover:border-electric-violet-500/50 transition-all duration-300 overflow-hidden"
+                            className="group relative flex items-center gap-4 p-6 bg-linear-to-br from-zinc-900/90 to-void-950/90 rounded-xl border border-zinc-800/50 hover:border-electric-violet-500/50 transition-all duration-300 overflow-hidden"
                         >
                             <div
-                                className={`p-3 rounded-lg bg-gradient-to-br ${link.gradient} shadow-lg`}
+                                className={`p-3 rounded-lg bg-linear-to-br ${link.gradient} shadow-lg`}
                             >
                                 <Icon className="w-6 h-6 text-white" />
                             </div>

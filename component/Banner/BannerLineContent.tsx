@@ -20,16 +20,16 @@ const BannerLineContent = ({ position, title }: BannerLineContentProps) => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className={`absolute left-5 ${positionClass}`}
+            className={`absolute left-5 ${positionClass} hidden md:block`}
         >
-            <h1 className="text-2xl mb-6">{title}</h1>
-            <div className="absolute top-16.5 left-0">
-                <div className="absolute left-0 bg-zinc-50 w-80.5 h-0.5"></div>
-                <div className="absolute left-0 -bottom-2.5 rounded-full bg-zinc-50 w-4 h-4"></div>
+            <h1 className="text-xl lg:text-2xl mb-6">{title}</h1>
+            <div className="absolute top-14 lg:top-16.5 left-0">
+                <div className="absolute top-1.5 lg:top-auto left-0 bg-zinc-50 w-60 lg:w-80.5 h-0.5"></div>
+                <div className="absolute top-0.5 lg:top-auto left-0 -bottom-2.5 rounded-full bg-zinc-50 w-3 lg:w-4 h-3 lg:h-4"></div>
             </div>
-            <div className="absolute -bottom-3.25 left-79.5 -rotate-45">
-                <div className="absolute left-1 bg-zinc-50 w-14 h-0.5"></div>
-                <div className="absolute left-14 -bottom-2.5 rounded-full bg-zinc-50 w-4 h-4"></div>
+            <div className="absolute -bottom-3.25 left-59 lg:left-79.5 -rotate-45">
+                <div className="absolute left-1 bg-zinc-50 w-10 lg:w-14 h-0.5"></div>
+                <div className="absolute left-10 lg:left-14 -bottom-2.5 rounded-full bg-zinc-50 w-3 lg:w-4 h-3 lg:h-4"></div>
             </div>
         </motion.div>
     );

@@ -54,7 +54,7 @@ const ChatModal = ({
                         animate={{ opacity: 1, scale: 1, y: 0 }}
                         exit={{ opacity: 0, scale: 0.95, y: 20 }}
                         transition={{ duration: 0.2, ease: "easeOut" }}
-                        className="fixed bottom-4 right-4 w-100 h-150 max-w-[calc(100vw-2rem)] max-h-[calc(100vh-2rem)] bg-void-900 border border-void-700 rounded-2xl shadow-2xl shadow-electric-violet-500/10 z-50 flex flex-col overflow-hidden"
+                        className="fixed inset-0 md:inset-auto md:bottom-4 md:right-4 md:w-100 md:h-150 md:max-w-[calc(100vw-2rem)] md:max-h-[calc(100vh-2rem)] bg-void-900 border-0 md:border border-void-700 rounded-none md:rounded-2xl shadow-2xl shadow-electric-violet-500/10 z-50 flex flex-col overflow-hidden"
                     >
                         <div className="flex items-center justify-between px-4 py-3 border-b border-void-700">
                             <div>
