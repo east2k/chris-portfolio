@@ -83,7 +83,12 @@ const Header = () => {
                     >
                         <ul className="flex flex-col items-center justify-center p-2 gap-2">
                             {headerLinks.map((link) => (
-                                <Link key={link.name} href={link.href} onClick={closeMobileMenu}>
+                                <Link
+                                    key={link.name}
+                                    href={link.href}
+                                    onClick={closeMobileMenu}
+                                    className="w-full text-center "
+                                >
                                     <li className="px-1 py-3 rounded-lg hover:bg-electric-violet-500/10 transition-colors">
                                         {link.name}
                                     </li>
@@ -94,7 +99,7 @@ const Header = () => {
                                     openChat();
                                     closeMobileMenu();
                                 }}
-                                className="px-1 py-3 rounded-lg hover:bg-electric-violet-500/10 transition-colors cursor-pointer"
+                                className="w-full text-center px-1 py-3 rounded-lg hover:bg-electric-violet-500/10 transition-colors cursor-pointer"
                             >
                                 Chat My Clone
                             </li>
