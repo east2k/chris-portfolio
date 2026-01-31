@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import Header from "../Header";
 import BannerLineContent from "./BannerLineContent";
 import { motion } from "motion/react";
@@ -13,7 +14,15 @@ const Banner = () => {
 
     return (
         <div className="flex flex-col items-center max-w-screen-2xl mx-auto text-zinc-50 mb-10">
-            <div className="relative border-none md:border-2 border-void-900 w-full m-0 md:m-3 rounded-none md:rounded-xl min-h-[500px] sm:min-h-[600px] md:min-h-[750px] lg:h-[911px] bg-[url('/images/banner-bg.jpg')] bg-cover bg-no-repeat bg-center overflow-hidden">
+            <div className="relative border-none md:border-2 border-void-900 w-full m-0 md:m-3 rounded-none md:rounded-xl min-h-[500px] sm:min-h-[600px] md:min-h-[750px] lg:h-[911px] overflow-hidden">
+                <Image
+                    src="/images/banner-bg.jpg"
+                    alt=""
+                    fill
+                    priority
+                    sizes="100vw"
+                    className="object-cover object-center -z-10"
+                />
                 <Header />
                 <div className="relative">
                     <div className="px-4 md:px-7">
