@@ -9,7 +9,7 @@ export const projects = [
         id: 1,
         title: "Hire Path",
         description:
-            "A complete job application tracking app. Organize, manage, and follow up on your job applications..",
+            "A complete job application tracking app. Organize, manage, and follow up on your job applications.",
         technologies: ["Typescript", "NextJS", "Tailwind", "Neon", "Clerk"],
         githubUrl: "https://github.com/east2k/hire-path",
         liveUrl: "https://hire-path-official.vercel.app/",
