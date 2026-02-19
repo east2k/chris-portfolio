@@ -19,6 +19,10 @@ export const techItems: Array<TechItems> = [
     { name: "reactquery", displayName: "React Query" },
     { name: "nextjs2", displayName: "NextJS" },
     { name: "tailwindcss", displayName: "Tailwind CSS" },
+    { name: "neon", displayName: "Neon" },
+    { name: "clerk", displayName: "Clerk" },
+    { name: "drizzle", displayName: "Drizzle" },
+    { name: "prisma", displayName: "Prisma" },
     { name: "eslint", displayName: "ESLint" },
     {
         name: "zustand",
