@@ -1,15 +1,12 @@
 import Anthropic from "@anthropic-ai/sdk";
-import { createClient } from "@supabase/supabase-js";
+import { eq } from "drizzle-orm";
+import { db } from "@/db";
+import { config, projects } from "@/db/schema";
 import { Message } from "@/types/chat";
 
 const anthropic = new Anthropic({
     apiKey: process.env.ANTHROPIC_API_KEY,
 });
-
-const supabase = createClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL!,
-    process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_DEFAULT_KEY!
-);
 
 let cachedPrompt: string | null = null;
 let cachedProjects: { id: number; name: string; keywords: string[] }[] | null =
@@ -18,18 +15,18 @@ let cachedProjects: { id: number; name: string; keywords: string[] }[] | null =
 const getSystemPrompt = async (): Promise<string> => {
     if (cachedPrompt) return cachedPrompt;
 
-    const { data, error } = await supabase
-        .from("config")
-        .select("value")
-        .eq("key", "chat_system_prompt")
-        .single();
-
-    if (error || !data) {
+    try {
+        const rows = await db
+            .select({ value: config.value })
+            .from(config)
+            .where(eq(config.key, "chat_system_prompt"))
+            .limit(1);
+        cachedPrompt = rows[0]?.value ?? "";
+    } catch (error) {
         console.error("Failed to fetch system prompt:", error);
         return "";
     }
 
-    cachedPrompt = data.value;
     return cachedPrompt ?? "";
 }
 
@@ -38,38 +35,37 @@ const getProjectList = async (): Promise<
 > => {
     if (cachedProjects) return cachedProjects;
 
-    const { data, error } = await supabase
-        .from("projects")
-        .select("id, name, keywords");
-
-    if (error || !data) {
+    try {
+        const rows = await db
+            .select({ id: projects.id, name: projects.name, keywords: projects.keywords })
+            .from(projects);
+        cachedProjects = rows.map((p) => ({
+            id: p.id,
+            name: p.name,
+            keywords: p.keywords
+                ? p.keywords.split(",").map((k: string) => k.trim().toLowerCase())
+                : [p.name.toLowerCase()],
+        }));
+    } catch (error) {
         console.error("Failed to fetch projects:", error);
         return [];
     }
-
-    cachedProjects = data.map((p) => ({
-        id: p.id,
-        name: p.name,
-        keywords: p.keywords
-            ? p.keywords.split(",").map((k: string) => k.trim().toLowerCase())
-            : [p.name.toLowerCase()],
-    }));
 
     return cachedProjects;
 }
 
 const getProjectDetails = async (projectId: number): Promise<string | null> => {
-    const { data, error } = await supabase
-        .from("projects")
-        .select("name, details")
-        .eq("id", projectId)
-        .single();
-
-    if (error || !data) {
+    try {
+        const rows = await db
+            .select({ name: projects.name, details: projects.details })
+            .from(projects)
+            .where(eq(projects.id, projectId))
+            .limit(1);
+        if (!rows[0]) return null;
+        return `\n\n## Detailed info about ${rows[0].name}:\n${rows[0].details}`;
+    } catch {
         return null;
     }
-
-    return `\n\n## Detailed info about ${data.name}:\n${data.details}`;
 }
 
 const findMentionedProjects = (
@@ -111,8 +107,8 @@ export async function POST(request: Request) {
 
         let systemPrompt = await getSystemPrompt();
 
-        const projects = await getProjectList();
-        const mentionedProjectIds = findMentionedProjects(messages, projects);
+        const projectList = await getProjectList();
+        const mentionedProjectIds = findMentionedProjects(messages, projectList);
 
         for (const projectId of mentionedProjectIds) {
             const details = await getProjectDetails(projectId);
