@@ -29,7 +29,7 @@ My personal portfolio website built with Next.js 15, React 18, and TypeScript.
 
 **Backend & AI:**
 
-- Supabase - Database for configuration storage
+- Neon - Serverless PostgreSQL database for configuration storage
 - Anthropic Claude SDK - AI-powered chat functionality
 
 ## Getting Started
@@ -39,7 +39,7 @@ My personal portfolio website built with Next.js 15, React 18, and TypeScript.
 - Node.js 18+ installed
 - pnpm (recommended) or npm
 - Anthropic API key for the chat feature
-- Supabase project with a `config` table for chat prompts
+- Neon project with `config` and `projects` tables for chat prompts
 
 ### Installation
 
@@ -62,8 +62,7 @@ Create a `.env.local` file in the root directory:
 
 ```
 ANTHROPIC_API_KEY=your_api_key_here
-NEXT_PUBLIC_SUPABASE_URL=your_supabase_url
-NEXT_PUBLIC_SUPABASE_PUBLISHABLE_DEFAULT_KEY=your_supabase_anon_key
+DATABASE_URL=your_neon_connection_string
 ```
 
 4. Run the development server:
@@ -112,7 +111,7 @@ chris-portfolio/
 
 1. Push your code to GitHub
 2. Import your repository to Vercel
-3. Add your environment variables (Anthropic + Supabase)
+3. Add your environment variables (Anthropic + Neon)
 4. Deploy
 
 ### Other Platforms
@@ -123,6 +122,5 @@ This is a standard Next.js application and can be deployed to any platform that 
 
 | Variable                                    | Description                     | Required |
 | ------------------------------------------- | ------------------------------- | -------- |
-| `ANTHROPIC_API_KEY`                         | API key for Claude chat feature | Yes      |
-| `NEXT_PUBLIC_SUPABASE_URL`                  | Supabase project URL            | Yes      |
-| `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_DEFAULT_KEY` | Supabase anon/public key     | Yes      |
+| `ANTHROPIC_API_KEY` | API key for Claude chat feature        | Yes      |
+| `DATABASE_URL`      | Neon PostgreSQL connection string      | Yes      |
